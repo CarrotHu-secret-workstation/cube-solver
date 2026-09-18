@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>三阶魔方 Kociemba 求解器</title>
+<link rel="stylesheet" href="./src/ui/style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "/vendor/three.module.js"
+  }
+}
+</script>
+</head>
+<body>
+<div id="app">
+  <div id="stage"><div id="canvas-host"></div></div>
+  <aside id="panel">
+    <h1>三阶魔方求解器</h1>
+    <p class="sub">Kociemba 二阶段算法</p>
+    <p class="build">构建版本 <b id="build">—</b></p>
+
+    <div class="group">
+      <div class="row">
+        <button id="btn-scramble">随机打乱</button>
+        <button id="btn-solve" class="primary">求解并复原</button>
+      </div>
+      <div class="row">
+        <button id="btn-reset">复位</button>
+        <button id="btn-undo">撤销一步</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <label class="lbl">播放速度 <span id="speed-val">正常</span></label>
+      <input type="range" id="speed" min="1" max="10" value="5">
+    </div>
+
+    <div class="group">
+      <label class="lbl">转动 / 视角</label>
+      <div class="hint">
+        在魔方表面拖动 → 转动该层<br>
+        在背景拖动 → 旋转视角<br>
+        滚轮 → 缩放
+      </div>
+    </div>
+
+    <div class="group">
+      <label class="lbl">当前打乱</label>
+      <div id="scramble-text" class="code">—</div>
+    </div>
+
+    <div class="group">
+      <label class="lbl">复原步骤 <span id="sol-len"></span></label>
+      <div id="solution-text" class="code">—</div>
+      <div id="solve-status" class="status"></div>
+    </div>
+
+    <div class="group">
+      <label class="lbl">手动转动</label>
+      <div id="move-buttons" class="moves"></div>
+    </div>
+  </aside>
+</div>
+<script type="module" src="./src/ui/main.js"></script>
+</body>
+</html>

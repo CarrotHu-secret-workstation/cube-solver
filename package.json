@@ -1,0 +1,18 @@
+{
+  "name": "cube-solver",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Kociemba two-phase 3x3x3 Rubik's cube solver with an interactive WebGL UI",
+  "scripts": {
+    "serve": "node server.mjs",
+    "test": "node test/run-all.mjs",
+    "test:unit": "node test/cubie.test.mjs && node test/coordinates.test.mjs",
+    "test:ui": "node test/ui-mapping.test.mjs && node test/interaction.test.mjs",
+    "test:solver": "node test/verify-all.mjs",
+    "test:browser": "node test/browser-suite.mjs"
+  },
+  "dependencies": {
+    "three": "^0.169.0"
+  }
+}

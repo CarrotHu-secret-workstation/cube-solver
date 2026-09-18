@@ -1,0 +1,577 @@
+{
+  "before": {
+    "holes": 124,
+    "wrong": 65,
+    "out": [
+      {
+        "name": "U",
+        "holes": 8,
+        "wrong": 4,
+        "checks": 54,
+        "samples": [
+          {
+            "kind": "hole",
+            "pos": [
+              1,
+              1,
+              -1
+            ],
+            "w": 1,
+            "want": "1f6fd0"
+          },
+          {
+            "kind": "wrong",
+            "pos": [
+              1,
+              1,
+              -1
+            ],
+            "w": 5,
+            "got": "1f6fd0",
+            "want": "f07f1a"
+          },
+          {
+            "kind": "hole",
+            "pos": [
+              0,
+              1,
+              -1
+            ],
+            "w": 5,
+            "want": "f07f1a"
+          },
+          {
+            "kind": "wrong",
+            "pos": [
+              -1,
+              1,
+              -1
+            ],
+            "w": 4,
+            "got": "f07f1a",
+            "want": "27a54a"
+          }
+        ]
+      },
+      {
+        "name": "R",
+        "holes": 8,
+        "wrong": 4,
+        "checks": 54,
+        "samples": [
+          {
+            "kind": "hole",
+            "pos": [
+              1,
+              -1,
+              1
+            ],
+            "w": 2,
+            "want": "f7d000"
+          },
+          {
+            "kind": "wrong",
+            "pos": [
+              1,
+              -1,
+              1
+            ],
+            "w": 3,
+            "got": "f7d000",
+            "want": "1f6fd0"
+          },
+          {
+            "kind": "hole",
+            "pos": [
+              1,
+              0,
+              1
+            ],
+            "w": 2,
+            "want": "f7d000"
+          },
+          {
+            "kind": "hole",
+            "pos": [
+              1,
+              1,
+              1
+            ],
+            "w": 0,
+            "want": "27a54a"
+          }
+        ]
+      },
+      {
+        "name": "F",
+        "holes": 8,
+        "wrong": 4,
+        "checks": 54,
+        "samples": [
+          {
+            "kind": "hole",
+            "pos": [
+              -1,
+              1,
+              1
+            ],
+            "w": 0,
+            "want": "f07f1a"
+          },
+          {
+            "kind": "wrong",
+            "pos": [
+              -1,
+              1,
+              1
+            ],
+            "w": 4,
+            "got": "f07f1a",
+            "want": "f7d000"
+          },
+          {
+            "kind": "hole",
+            "pos": [
+              0,
+              1,
+              1
+            ],
+            "w": 0,
+            "want": "f07f1a"
+          },
+          {
+            "kind": "wrong",
+            "pos": [
+              1,
+              1,
+              1
+            ],
+            "w": 0,
+            "got": "f7f7f7",
+            "want": "f07f1a"
+          }
+        ]
+      },
+      {
+        "name": "U'",
+        "holes": 8,
+        "wrong": 4,
+        "checks": 54,
+        "samples": [
+          {
+            "kind": "hole",
+            "pos": [
+              -1,
+              1,
+              1
+            ],
+            "w": 2,
+            "want": "f07f1a"
+          },
+          {
+            "kind": "wrong",
+            "pos": [
+              -1,
+              1,
+              1
+            ],
+            "w": 4,
+            "got": "f07f1a",
+            "want": "1f6fd0"
+          },
+          {
+            "kind": "hole",
+            "pos": [
+              0,
+              1,
+              1
+            ],
+            "w": 2,
+            "want": "f07f1a"
+          },
+          {
+            "kind": "hole",
+            "pos": [
+              1,
+              1,
+              1
+            ],
+            "w": 1,
+            "want": "27a54a"
+          }
+        ]
+      },
+      {
+        "name": "R'",
+        "holes": 8,
+        "wrong": 4,
+        "checks": 54,
+        "samples": [
+          {
+            "kind": "hole",
+            "pos": [
+              1,
+              1,
+              -1
+            ],
+            "w": 0,
+            "want": "1f6fd0"
+          },
+          {
+            "kind": "wrong",
+            "pos": [
+              1,
+              1,
+              -1
+            ],
+            "w": 5,
+            "got": "1f6fd0",
+            "want": "f7d000"
+          },
+          {
+            "kind": "hole",
+            "pos": [
+              1,
+              0,
+              -1
+            ],
+            "w": 5,
+            "want": "f7d000"
+          },
+          {
+            "kind": "wrong",
+            "pos": [
+              1,
+              -1,
+              -1
+            ],
+            "w": 3,
+            "got": "f7d000",
+            "want": "27a54a"
+          }
+        ]
+      },
+      {
+        "name": "D'",
+        "holes": 8,
+        "wrong": 4,
+        "checks": 54,
+        "samples": [
+          {
+            "kind": "hole",
+            "pos": [
+              1,
+              -1,
+              -1
+            ],
+            "w": 1,
+            "want": "1f6fd0"
+          },
+          {
+            "kind": "wrong",
+            "pos": [
+              1,
+              -1,
+              -1
+            ],
+            "w": 5,
+            "got": "1f6fd0",
+            "want": "f07f1a"
+          },
+          {
+            "kind": "hole",
+            "pos": [
+              0,
+              -1,
+              -1
+            ],
+            "w": 5,
+            "want": "f07f1a"
+          },
+          {
+            "kind": "wrong",
+            "pos": [
+              -1,
+              -1,
+              -1
+            ],
+            "w": 4,
+            "got": "f07f1a",
+            "want": "27a54a"
+          }
+        ]
+      },
+      {
+        "name": "U R",
+        "holes": 13,
+        "wrong": 9,
+        "checks": 54,
+        "samples": [
+          {
+            "kind": "hole",
+            "pos": [
+              1,
+              -1,
+              -1
+            ],
+            "w": 1,
+            "want": "1f6fd0"
+          },
+          {
+            "kind": "hole",
+            "pos": [
+              1,
+              -1,
+              -1
+            ],
+            "w": 3,
+            "want": "f07f1a"
+          },
+          {
+            "kind": "wrong",
+            "pos": [
+              1,
+              -1,
+              -1
+            ],
+            "w": 5,
+            "got": "1f6fd0",
+            "want": "f7f7f7"
+          },
+          {
+            "kind": "hole",
+            "pos": [
+              0,
+              1,
+              -1
+            ],
+            "w": 5,
+            "want": "f07f1a"
+          }
+        ]
+      },
+      {
+        "name": "R U R' U'",
+        "holes": 8,
+        "wrong": 4,
+        "checks": 54,
+        "samples": [
+          {
+            "kind": "wrong",
+            "pos": [
+              1,
+              1,
+              -1
+            ],
+            "w": 0,
+            "got": "f7f7f7",
+            "want": "f07f1a"
+          },
+          {
+            "kind": "hole",
+            "pos": [
+              1,
+              1,
+              -1
+            ],
+            "w": 1,
+            "want": "f7f7f7"
+          },
+          {
+            "kind": "hole",
+            "pos": [
+              1,
+              0,
+              1
+            ],
+            "w": 1,
+            "want": "1f6fd0"
+          },
+          {
+            "kind": "hole",
+            "pos": [
+              1,
+              0,
+              1
+            ],
+            "w": 2,
+            "want": "f7f7f7"
+          }
+        ]
+      },
+      {
+        "name": "random",
+        "holes": 25,
+        "wrong": 14,
+        "checks": 54,
+        "samples": [
+          {
+            "kind": "hole",
+            "pos": [
+              1,
+              1,
+              1
+            ],
+            "w": 0,
+            "want": "f7d000"
+          },
+          {
+            "kind": "hole",
+            "pos": [
+              1,
+              1,
+              1
+            ],
+            "w": 1,
+            "want": "1f6fd0"
+          },
+          {
+            "kind": "hole",
+            "pos": [
+              1,
+              1,
+              1
+            ],
+            "w": 2,
+            "want": "f07f1a"
+          },
+          {
+            "kind": "hole",
+            "pos": [
+              -1,
+              1,
+              -1
+            ],
+            "w": 0,
+            "want": "27a54a"
+          }
+        ]
+      },
+      {
+        "name": "random2",
+        "holes": 30,
+        "wrong": 14,
+        "checks": 54,
+        "samples": [
+          {
+            "kind": "hole",
+            "pos": [
+              1,
+              1,
+              -1
+            ],
+            "w": 0,
+            "want": "f07f1a"
+          },
+          {
+            "kind": "hole",
+            "pos": [
+              1,
+              1,
+              -1
+            ],
+            "w": 1,
+            "want": "1f6fd0"
+          },
+          {
+            "kind": "wrong",
+            "pos": [
+              1,
+              1,
+              -1
+            ],
+            "w": 5,
+            "got": "1f6fd0",
+            "want": "f7d000"
+          },
+          {
+            "kind": "hole",
+            "pos": [
+              -1,
+              1,
+              0
+            ],
+            "w": 0,
+            "want": "f7d000"
+          }
+        ]
+      }
+    ]
+  },
+  "after": {
+    "holes": 0,
+    "wrong": 0,
+    "out": [
+      {
+        "name": "U",
+        "holes": 0,
+        "wrong": 0,
+        "checks": 54,
+        "samples": []
+      },
+      {
+        "name": "R",
+        "holes": 0,
+        "wrong": 0,
+        "checks": 54,
+        "samples": []
+      },
+      {
+        "name": "F",
+        "holes": 0,
+        "wrong": 0,
+        "checks": 54,
+        "samples": []
+      },
+      {
+        "name": "U'",
+        "holes": 0,
+        "wrong": 0,
+        "checks": 54,
+        "samples": []
+      },
+      {
+        "name": "R'",
+        "holes": 0,
+        "wrong": 0,
+        "checks": 54,
+        "samples": []
+      },
+      {
+        "name": "D'",
+        "holes": 0,
+        "wrong": 0,
+        "checks": 54,
+        "samples": []
+      },
+      {
+        "name": "U R",
+        "holes": 0,
+        "wrong": 0,
+        "checks": 54,
+        "samples": []
+      },
+      {
+        "name": "R U R' U'",
+        "holes": 0,
+        "wrong": 0,
+        "checks": 54,
+        "samples": []
+      },
+      {
+        "name": "random",
+        "holes": 0,
+        "wrong": 0,
+        "checks": 54,
+        "samples": []
+      },
+      {
+        "name": "random2",
+        "holes": 0,
+        "wrong": 0,
+        "checks": 54,
+        "samples": []
+      }
+    ]
+  }
+}

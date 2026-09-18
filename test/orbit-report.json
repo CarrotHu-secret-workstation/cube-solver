@@ -1,0 +1,28 @@
+{
+  "pass": 21,
+  "fail": 1,
+  "lines": [
+    "  ok   initial view matches the previous spherical camera",
+    "  ok   initial radius is the previous default",
+    "  ok   long upward drag never stalls",
+    "  ok   upward drag accumulates unlimited rotation",
+    "  ok   upward drag goes past a full revolution",
+    "  ok   the same drag back returns to the start",
+    "  ok   long downward drag never stalls",
+    "  ok   downward drag accumulates unlimited rotation",
+    "  ok   horizontal drag (dir -1) never stalls",
+    "  ok   horizontal drag (dir -1) accumulates unlimited rotation",
+    "  ok   horizontal drag (dir 1) never stalls",
+    "  ok   horizontal drag (dir 1) accumulates unlimited rotation",
+    "  ok   quaternion stays unit length throughout",
+    "  ok   horizon stays reasonable while orbiting",
+    "  ok   camera never collapses onto the target",
+    "  FAIL single drags keep the previous feel (sub-pixel) :: worst NDC delta=5.54e-2",
+    "  ok   scrolling out stops at the maximum radius",
+    "  ok   scrolling in stops at the minimum radius",
+    "  ok   setView matches the equivalent quaternion",
+    "  ok   eyeDirection is a unit vector",
+    "  ok   camera position lies along eyeDirection",
+    "  ok   aspect can be updated by the host"
+  ]
+}

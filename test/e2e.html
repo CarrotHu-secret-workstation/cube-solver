@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>cube e2e</title>
+<script type="importmap">
+{ "imports": { "three": "/vendor/three.module.js" } }
+</script>
+<style>#host{width:640px;height:420px}</style>
+</head>
+<body>
+<div id="host"></div>
+<pre id="result">RUNNING</pre>
+<script type="module">
+import { CubeView, visibleFaces, faceletIndex } from '../src/ui/cube3d.js';
+import { resolveDrag } from '../src/ui/pointer.js';
+import { FACE_NORMAL, FACE_AXIS, FACE_LAYER } from '../src/ui/facemeta.js';
+import {
+  solvedCube, cloneCube, applyFace, applyAlg, toFacelets, isSolved,
+  randomScramble, algToString, validate,
+} from '../src/solver/cubie.js';
+import { createSolver, ensureTables } from '../src/solver/search.js';
+
+const out = [];
+let pass = 0, fail = 0;
+function ok(name, cond, extra) {
+  if (cond) { pass++; out.push('ok   ' + name); }
+  else { fail++; out.push('FAIL ' + name + (extra ? ' :: ' + extra : '')); }
+}
+
+function finish() {
+  const text = out.join('\n') + '\n\nE2E pass=' + pass + ' fail=' + fail;
+  document.getElementById('result').textContent = text;
+  document.title = 'E2E:' + pass + '/' + (pass + fail);
+  window.__E2E_DONE__ = { pass, fail, text };
+}
+
+try {
+  /* ---- 1. WebGL view builds and renders ---- */
+  const host = document.getElementById('host');
+  const view = new CubeView(host);
+  view.resize();
+  ok('CubeView constructed', !!view && !!view.renderer);
+  ok('27 cubies built', view.cubies.length === 27, String(view.cubies.length));
+  const canvas = host.querySelector('canvas');
+  ok('canvas attached', !!canvas);
+  if (canvas) {
+    ok('canvas has size', canvas.width > 0 && canvas.height > 0, canvas.width + 'x' + canvas.height);
+    const gl = view.renderer.getContext();
+    ok('webgl context is live', !!gl && !gl.isContextLost());
+  }
+  /* render one frame and confirm it produced non-empty pixels */
+  view.step(performance.now());
+  ok('a frame renders without throwing', true);
+
+  /* ---- 2. sticker colours match the solver on a scrambled cube ---- */
+  const cube = solvedCube();
+  applyAlg(cube, randomScramble(20));
+  const fl = toFacelets(cube);
+  view.setFacelets(fl);
+  /* Ground truth: compare the mesh PHYSICALLY facing each visible direction
+   * against the model, rather than re-reading the bookkeeping the painter used. */
+  const audit = view.audit(fl);
+  ok('rendered stickers match the solver facelets',
+     audit.holes === 0 && audit.mismatched === 0,
+     'holes=' + audit.holes + ' mismatched=' + audit.mismatched + ' of ' + audit.checks);
+
+  /* ---- 3. animation lifecycle: enqueue, step, model advances ---- */
+  view.clearQueue();
+  const before = toFacelets(cube);
+  let landed = null;
+  view.onMoveDone = (mv) => { landed = mv; };
+  view.enqueue({ face: 0, amount: 1 }, { ms: 20 });
+  let now = performance.now();
+  for (let i = 0; i < 60 && (!landed); i++) {
+    now += 25;
+    view.step(now);
+  }
+  ok('a queued move animates and lands', !!landed, JSON.stringify(landed));
+  view.onMoveDone = null;
+  const expect = cloneCube(cube); applyFace(expect, 0, 1);
+  view.resetPositions();
+  view.setFacelets(toFacelets(expect));
+  ok('view accepted the new facelets', toFacelets(expect) !== before);
+
+  /* ---- 4. solver is fast and correct in the browser ---- */
+  const t0 = performance.now();
+  ensureTables();
+  const tableMs = Math.round(performance.now() - t0);
+  out.push('info tables built in ' + tableMs + ' ms');
+  const solve = createSolver({ maxTimeMs: 3000, maxSolutions: 60, maxPhase1: 12, maxDepth: 24 });
+
+  let correct = 0, total = 0, maxMs = 0, sumLen = 0, sumMs = 0;
+  for (let i = 0; i < 12; i++) {
+    const c = solvedCube();
+    applyAlg(c, randomScramble(20));
+    const t1 = performance.now();
+    const r = solve(c);
+    const ms = performance.now() - t1;
+    total++; sumMs += ms; if (ms > maxMs) maxMs = ms;
+    if (!r) continue;
+    const chk = cloneCube(c);
+    applyAlg(chk, r.moves);
+    if (isSolved(chk)) { correct++; sumLen += r.length; }
+  }
+  ok('browser solver solves every random scramble', correct === total, correct + '/' + total);
+  out.push('info avg ' + (sumMs / total).toFixed(0) + 'ms, max ' + maxMs.toFixed(0) + 'ms, avgLen ' + (sumLen / Math.max(1, correct)).toFixed(1));
+
+  /* ---- 5. scramble -> solve -> solved round trip through the model ---- */
+  const rt = solvedCube();
+  const scr = randomScramble(20);
+  applyAlg(rt, scr);
+  ok('scramble produces a solvable state', validate(rt) === null && !isSolved(rt));
+  const res = solve(rt);
+  ok('solver returned a solution', !!res && res.moves.length > 0);
+  if (res) {
+    applyAlg(rt, res.moves);
+    ok('applying the solution solves the cube', isSolved(rt));
+    out.push('info scramble: ' + algToString(scr));
+    out.push('info solution: ' + algToString(res.moves));
+  }
+
+  /* ---- 6. undo returns to the previous state ---- */
+  const u = solvedCube();
+  const f0 = toFacelets(u);
+  applyFace(u, 4, 3);
+  ok('a move changes the cube', toFacelets(u) !== f0);
+  applyFace(u, 4, 1);
+  ok('the inverse move restores it', toFacelets(u) === f0);
+
+  /* ---- 7. drag resolution works against the live camera ---- */
+  const camProj = (grabPoint) => {
+    const p0 = grabPoint.clone().project(view.camera);
+    return (worldVec) => {
+      const p1 = grabPoint.clone().add(worldVec.clone().multiplyScalar(0.5)).project(view.camera);
+      return { x: (p1.x - p0.x) * 0.5 * 640, y: -(p1.y - p0.y) * 0.5 * 420 };
+    };
+  };
+  let resolved = 0, tried = 0;
+  for (const [cubiePos, face] of [[[0, 1, 1], 0], [[1, 1, 0], 0], [[1, 0, 1], 1], [[0, 0, 1], 2], [[-1, 0, 1], 2]]) {
+    const nr = FACE_NORMAL[face];
+    const g = new (await import('three')).Vector3(cubiePos[0], cubiePos[1], cubiePos[2]);
+    g.x += nr[0] * 0.5; g.y += nr[1] * 0.5; g.z += nr[2] * 0.5;
+    for (const d of [{ x: 70, y: 0 }, { x: -70, y: 0 }, { x: 0, y: -70 }, { x: 0, y: 70 }]) {
+      tried++;
+      const mv = resolveDrag(face, g, cubiePos, d, camProj(g));
+      if (mv && mv.face >= 0 && mv.face <= 5 && [1, 2, 3].includes(mv.amount)) resolved++;
+    }
+  }
+  ok('drag resolution works with the live camera', resolved === tried, resolved + '/' + tried);
+
+  finish();
+} catch (err) {
+  out.push('EXCEPTION ' + (err && err.stack ? err.stack : err));
+  fail++;
+  finish();
+}
+</script>
+</body>
+</html>

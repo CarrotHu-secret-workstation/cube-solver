@@ -1,0 +1,318 @@
+{
+  "summary": {
+    "negativeQuarterGuard": true,
+    "guardFailures": [],
+    "sequences": 51,
+    "failing": 0,
+    "totalHoles": 0,
+    "firstFailure": null
+  },
+  "results": [
+    {
+      "label": "U",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "R",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "F",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "U2",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "U'",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "U R",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "U R'",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "U D",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "R U R' U'",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "U F R",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "all six faces once",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#0",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#1",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#2",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#3",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#4",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#5",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#6",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#7",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#8",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#9",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#10",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#11",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#12",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#13",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#14",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#15",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#16",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#17",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#18",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#19",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#20",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#21",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#22",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#23",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#24",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#25",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#26",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#27",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#28",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#29",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#30",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#31",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#32",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#33",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#34",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#35",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#36",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#37",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#38",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    },
+    {
+      "label": "random#39",
+      "holes": 0,
+      "checks": 54,
+      "samples": []
+    }
+  ]
+}

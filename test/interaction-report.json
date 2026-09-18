@@ -1,0 +1,81 @@
+{
+  "pass": 7,
+  "fail": 0,
+  "tested": 216,
+  "resolved": 216,
+  "followed": 123,
+  "reversed": 0,
+  "illegal": 0,
+  "wrongFace": 0,
+  "degenerate": 24,
+  "ambiguous": 69,
+  "rejected": 0,
+  "checks": {
+    "turnIsAlwaysTheGrabbedFace": true,
+    "stickerFollowsTheFinger": true,
+    "everyMoveIsLegal": true,
+    "grabbableDragsResolve": true,
+    "centreStickersAlsoWork": true,
+    "spotGesturesPickTheirFace": true,
+    "oppositeDragsGiveOppositeTurns": true
+  },
+  "reversedSamples": [],
+  "wrongFaceSamples": [],
+  "rejectedSamples": [],
+  "spots": [
+    {
+      "label": "F face, drag right",
+      "got": "F"
+    },
+    {
+      "label": "F face, drag left",
+      "got": "F'"
+    },
+    {
+      "label": "F face, drag up",
+      "got": "F'"
+    },
+    {
+      "label": "F face, drag down",
+      "got": "F"
+    },
+    {
+      "label": "U face, drag right",
+      "got": "U'"
+    },
+    {
+      "label": "U face, drag left",
+      "got": "U"
+    },
+    {
+      "label": "R face, drag up",
+      "got": "R"
+    },
+    {
+      "label": "R face, drag down",
+      "got": "R'"
+    }
+  ],
+  "pairs": [
+    {
+      "label": "F right/left",
+      "a": "F",
+      "b": "F'"
+    },
+    {
+      "label": "F up/down",
+      "a": "F'",
+      "b": "F"
+    },
+    {
+      "label": "U right/left",
+      "a": "U'",
+      "b": "U"
+    },
+    {
+      "label": "R up/down",
+      "a": "R",
+      "b": "R'"
+    }
+  ]
+}
